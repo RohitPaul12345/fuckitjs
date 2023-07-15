@@ -11,9 +11,9 @@
 
   $.ajaxSetup({ cache: true });
 
-  var _FuckIt = window.FuckIt;
+  let _FuckIt = window.FuckIt;
 
-  var FuckIt = function(script){
+  let FuckIt = function(script){
     window.fuckingDeferred = $.Deferred();
     $.ajax({
       url: script,
@@ -30,7 +30,7 @@
 
   window.onerror = function(error, url, line){
     if (!window.fuckedScript) return;
-    var parsed = window.fuckedScript.split("\n");
+    let parsed = window.fuckedScript.split("\n");
     parsed.splice(line - 1, 1);
     window.fuckedScript = parsed.join("\n");
     $.getScript("fuckit.js", function(){
@@ -47,7 +47,7 @@
   }
 
   FuckIt.moreConflict = function(){
-    for (var prop in window){
+    for (let prop in window){
       if (prop === "location"){
         //you're not getting away that easy.
         continue;
